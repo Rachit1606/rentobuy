@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".modules.home.FilterActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/grey"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_alignParentStart="true"/>
+
+        <!-- Title TextView -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filtered Results"
+            android:textColor="@color/primary"
+            android:textSize="15sp"
+            android:layout_centerInParent="true"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:paddingStart="72dp"
+            android:paddingEnd="72dp"
+            android:gravity="center"
+            android:layout_toEndOf="@id/btnBack"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Min Price EditText -->
+    <EditText
+        android:id="@+id/minPriceEditText"
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="Min Price"
+        android:inputType="numberDecimal"
+        android:layout_below="@id/toolbar" />
+
+    <!-- Max Price EditText -->
+    <EditText
+        android:id="@+id/maxPriceEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Max Price"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@id/minPriceEditText"
+        android:inputType="numberDecimal"
+        android:layout_below="@id/toolbar" />
+
+    <!-- Apply Filter Button -->
+    <Button
+        android:id="@+id/btnApplyFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/maxPriceEditText"
+        android:layout_marginTop="16dp"
+        android:text="Apply Filter" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_below="@id/btnApplyFilter" >
+
+    <!-- RecyclerView to display filtered products -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewFilteredProducts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnApplyFilter"
+        android:layout_marginTop="16dp" />
+    </ScrollView>
+
+    <include
+        android:id="@+id/bottomNavigationBar"
+        layout="@layout/bottom_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>
